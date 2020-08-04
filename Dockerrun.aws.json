@@ -24,6 +24,19 @@
       "image": "phonekham/docker-complex-server",
       "hostname": "api",
       "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "phonekham/docker-complex-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
     }
   ]
 }
