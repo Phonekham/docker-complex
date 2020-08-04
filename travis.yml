@@ -1,0 +1,12 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t phonekham/docker-react-test -f ./client/Dockerfile.dev ./client
+script:
+  - docker run phonekham/docker-react-test npm test -- --coverage
+after_success:
+  - docker build -t phonekham/docker-complex-client ./client
+  - docker build -t phonekham/docker-complex-nginx ./nginx
+  - docker build -t phonekham/docker-complex-server ./server
+  - docker build -t phonekham/docker-complex-worker ./worker
