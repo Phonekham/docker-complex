@@ -4,7 +4,7 @@ services:
 before_install:
   - docker build -t phonekham/docker-react-test -f ./client/Dockerfile.dev ./client
 script:
-  - docker run phonekham/docker-react-test npm test -- --coverage
+  - docker run -e CI=true  phonekham/docker-react-test npm test
 after_success:
   - docker build -t phonekham/docker-complex-client ./client
   - docker build -t phonekham/docker-complex-nginx ./nginx
