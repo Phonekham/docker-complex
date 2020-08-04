@@ -10,3 +10,10 @@ after_success:
   - docker build -t phonekham/docker-complex-nginx ./nginx
   - docker build -t phonekham/docker-complex-server ./server
   - docker build -t phonekham/docker-complex-worker ./worker
+  #   Login to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #  Take those images and push to dockerhub
+  - docker push phonekham/docker-complex-client
+  - docker push phonekham/docker-complex-nginx
+  - docker push phonekham/docker-complex-server
+  - docker push phonekham/docker-complex-worker
