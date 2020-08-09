@@ -21,10 +21,10 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: "ap-southeast-1"
-  app: "docker-complex"
-  env: "DockerComplex-env"
-  bucket_name: "elasticbeanstalk-ap-southeast-1-528502753315"
-  bucket_path: "docker-complex"
+  app: docker-complex
+  env: DockerComplex-env
+  bucket_name: elasticbeanstalk-ap-southeast-1-528502753315
+  bucket_path: docker-complex
   on:
     branch_master: master
   access_key_id: $AWS_ACCESS_KEY
