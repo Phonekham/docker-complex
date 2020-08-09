@@ -18,6 +18,7 @@ after_success:
   - docker push phonekham/docker-complex-server
   - docker push phonekham/docker-complex-worker
 deploy:
+  edge: true
   provider: elasticbeanstalk
   region: "ap-southeast-1"
   app: "docker-complex"
