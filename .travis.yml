@@ -17,3 +17,15 @@ after_success:
   - docker push phonekham/docker-complex-nginx
   - docker push phonekham/docker-complex-server
   - docker push phonekham/docker-complex-worker
+deploy:
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "docker-complex"
+  env: "DockerComplex-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-528502753315"
+  bucket_path: "docker-complex"
+  on:
+    branch_master: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
